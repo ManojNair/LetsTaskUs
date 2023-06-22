@@ -31,3 +31,12 @@ steps:
     publishLocation: 'pipeline'
 
 
+- task: DownloadPipelineArtifact@2
+  inputs:
+    buildType: 'current'
+    artifactName: 'helloworld.txt'
+    targetPath: '$(Pipeline.Workspace)'
+
+- script: |
+    cat $(Pipeline.Workspace)/helloworld.txt
+  displayName: 'Echo the file saved'
