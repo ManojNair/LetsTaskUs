@@ -19,11 +19,15 @@ steps:
   displayName: 'Run a multi-line script'
 
 - script: |
-    echo "Hello World" > - task: PublishPipelineArtifact@1
-    inputs:
-      targetPath: '$(Build.ArtifactStagingDirectory)/helloworld.txt'
-      artifact: 'helloworld.txt'
-      publishLocation: 'pipeline'
-  displayName: 'Saving hello world in a text file'
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+    echo 'Hello World' > $(Build.ArtifactStagingDirectory)/helloworld.txt
+  displayName: 'Save file as hello world'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)/helloworld.txt'
+    artifact: 'helloworld.txt'
+    publishLocation: 'pipeline'
 
 
